@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aliff Macapinlac</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
+</head>
+<body id="body" style="padding-left:10vh; padding-right:10vh;">
+
+<div class="container-fluid top-top">
+
+</div>
+<div class="container-fluid top-layout">
+
+	<div class="container top-inner-layout" style="position: relative;">
+	<h1 id="name-top" style="color: white; font-family: georgia; position: absolute; bottom:0; display:none"><em>Aliff Macapinlac</em></h1>
+	</div>
+</div>
+
+<div class="container middle-layout" style="text-align: center;">
+
+<h1 id="name" style="color: white; margin: 22vh auto; display:none; font-family: georgia;"><em>Aliff Macapinlac</em></h1>
+
+
+</div>
+
+<div class="container-fluid bottom-layout">
+
+	<div class="container bottom-inner-layout">
+	<a href="/home"><h5 id="enter" style="text-align:center; display:none;">ENTER</h5></a>
+	</div>
+</div>
+<div class="container-fluid bottom-bottom">
+
+</div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<!-- <script src="/js/handlebars-v4.0.5.js"></script>
+<script src="/js/researchPaperTemplate.js"></script> -->
+
+<script src="/js/myJS.js"></script>
+<script>
+	
+			$("h1#name").fadeIn(4000); 
+			var x = 0, y =0, z=0; 
+			var theInterval = setInterval(function(){
+					$("body").css("background", "linear-gradient(to left top, rgb(0,0,0), rgb("+x+", "+y+", "+z+"))")
+
+					x+=10;
+					y+=10;
+					z+=10; 
+			if(x>240){
+				
+				window.clearInterval(theInterval);
+			}
+
+			}, 30);
+			setTimeout(function(){
+
+					$("h5#enter").slideDown();
+			}, 4000);
+
+			$("h5#enter").click(function(e){
+				e.preventDefault(); 
+				$("h1#name").fadeOut();
+				$("h1#name-top").fadeIn();  
+
+				setTimeout(function(){
+					window.location.href = "/home"; 
+				}, 1000)
+			})
+		
+
+			
+
+
+
+</script>
+</body>
+</html>
