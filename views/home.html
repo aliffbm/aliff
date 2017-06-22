@@ -22,15 +22,46 @@
 
 <div class="container middle-layout" style="text-align: center;">
 
-<div class="row" style="border: 1px solid #000; min-height: 50vh;">
-<div class="col-sm-4" style="border: 1px solid #000; min-height: 50vh;">
-	<img class="" height="200vh" src="/images/temp.gif" style="display: block;margin:auto;"/>
+<div class="row" style="border: 1px solid #fff; min-height: 50vh;">
+<div class="col-sm-4" style="min-height: 50vh; position: relative;">
+<svg  id="aboutMe" height="50vh" style="display:none;">
+  <defs>
+    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#fff;stop-opacity:0" />
+      <stop offset="100%" style="stop-color:#000;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+
+  <ellipse rx="85" ry="55" fill="url(#grad1)" />
+  <text class="nav-items" fill="#000">About Me</text>
+
+</svg>
 </div>
 <div class="col-sm-4">
-	<img width="300" src="/images/temp.gif"/>
+	<svg id="myInterest" height="50vh" style="display:none;">
+  <defs>
+    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#fff;stop-opacity:0" />
+      <stop offset="100%" style="stop-color:#000;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <ellipse rx="85" ry="55" fill="url(#grad1)" />
+  <text class="nav-items"  fill="#000">My Interest</text>
+
+</svg>
 </div>
 <div class="col-sm-4">
-	<img width="300" src="/images/temp.gif"/>
+	<svg id="myProjects" height="50vh" style="display:none;">
+  <defs>
+    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#fff;stop-opacity:0" />
+      <stop offset="100%" style="stop-color:#000;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <ellipse rx="85" ry="55" fill="url(#grad1)" />
+  <text class="nav-items" fill="#000">My Projects</text>
+
+</svg>
 </div>
 </div>
 
@@ -68,6 +99,32 @@
 
 			}, 0);
 
+
+			$("svg#aboutMe").fadeIn(1000);
+			$("svg#myInterest").fadeIn(2000);
+			$("svg#myProjects").fadeIn(3000);
+			
+		
+			
+
+
+
+			 
+			// setTimeout(function(){
+
+			// 	svgItems
+
+			// }, 1000);
+
+
+			// setTimeout(function(){
+
+			// }, 1000);
+
+
+			// setTimeout(function(){
+
+			// }, 1000);
 </script>
 </body>
 </html>

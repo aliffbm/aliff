@@ -10,6 +10,12 @@ body{
   background-color: -webkit-linear-gradient(to left top, blue, red);
   background: linear-gradient( to left top, black, black);
 }
+canvas{
+  background: linear-gradient( to left top, black, white);
+  opacity: .2;
+  border-radius: 50px;
+}
+
 .top-top{
   min-height: 10vh;
 }
@@ -53,9 +59,10 @@ a{
    text-decoration: none;
 }
 a:hover{
-  text-decoration: none;
+  color: inherit;
+  font-size: 25px;
 }
-#enter:hover{
+h5#enter:hover{
   color: #fff;
   font-size: 25px;
   
@@ -68,6 +75,85 @@ a:hover{
 
 
 
+@media screen and (max-width: 768px){
+     ellipse{
+        cx: 25vw;
+        cy: 25vh;
+     }
+
+   text{
+      font-family: georgia;
+      font-size: 25px;
+      transform: translate(14vw, 26vh); 
+  }
+}
+
+
+
+@media screen and (max-width: 968px) and (min-width: 768px){
+    ellipse{
+            cx: 12vw;
+            cy: 25vh;
+    }
+
+    text{
+        font-family: georgia;
+      font-size: 25px;
+      transform: translate(4vw, 26vh); 
+     }
+}
+
+@media screen and (max-width: 1080px) and (min-width: 968px){
+    ellipse{
+            cx: 12vw;
+            cy: 25vh;
+    }
+
+    text{
+        font-family: georgia;
+      font-size: 25px;
+      transform: translate(5vw, 26vh); 
+     }
+}
+
+@media screen and (max-width: 1280px) and (min-width: 1080px){
+    ellipse{
+            cx: 12vw;
+            cy: 25vh;
+    }
+
+    text{
+        font-family: georgia;
+      font-size: 25px;
+      transform: translate(7vw, 26vh); 
+     }
+}
+
+@media screen and (max-width: 1520px) and (min-width: 1280px){
+    ellipse{
+            cx: 12vw;
+            cy: 25vh;
+    }
+
+    text{
+        font-family: georgia;
+        font-size: 25px;
+        transform: translate(8vw, 26vh); 
+     }
+}
+
+@media screen and (min-width: 1520px){
+    ellipse{
+            cx: 8vw;
+            cy: 25vh;
+    }
+
+    text{
+        font-family: georgia;
+        font-size: 25px;
+        transform: translate(5vw, 26vh); 
+     }
+}
 
 /*******************************************************************************************************/
 /*******************************************************************************************************/

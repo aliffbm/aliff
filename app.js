@@ -15,7 +15,7 @@ app.get("/home", function(req, res){
 	
 })
 
-app.listen(3000,'192.168.0.9' ,function(){
+app.listen(3000, function(){
 	console.log("listening on %d", 3000);
 
 })
