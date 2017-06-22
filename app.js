@@ -15,7 +15,8 @@ app.get("/home", function(req, res){
 	
 })
 
-app.listen(3000, function(){
+var PORT = 3000 || process.env.PORT; 
+app.listen(PORT, function(){
 	console.log("listening on %d", 3000);
 
 })
