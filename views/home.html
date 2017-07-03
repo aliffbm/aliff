@@ -20,6 +20,7 @@
 	</div>
 </div>
 
+<div class="container-fluid middle-outter-layout">
 <div class="container middle-layout" style="text-align: center;">
 
 <div class="row" style="border: 1px solid #fff; min-height: 50vh;">
@@ -32,8 +33,8 @@
     </radialGradient>
   </defs>
 
-  <ellipse rx="85" ry="55" fill="url(#grad1)" />
-  <text class="nav-items" fill="#000">About Me</text>
+  <ellipse rx="95" ry="65" fill="url(#grad1)" />
+  <text class="nav-items" fill="#fff">About Me</text>
 
 </svg>
 </div>
@@ -45,8 +46,8 @@
       <stop offset="100%" style="stop-color:#000;stop-opacity:1" />
     </radialGradient>
   </defs>
-  <ellipse rx="85" ry="55" fill="url(#grad1)" />
-  <text class="nav-items"  fill="#000">My Interest</text>
+  <ellipse rx="95" ry="65" fill="url(#grad1)" />
+  <text class="nav-items"  fill="#fff">My Interest</text>
 
 </svg>
 </div>
@@ -58,8 +59,8 @@
       <stop offset="100%" style="stop-color:#000;stop-opacity:1" />
     </radialGradient>
   </defs>
-  <ellipse rx="85" ry="55" fill="url(#grad1)" />
-  <text class="nav-items" fill="#000">My Projects</text>
+  <ellipse rx="95" ry="65" fill="url(#grad1)" />
+  <text class="nav-items" fill="#fff">My Projects</text>
 
 </svg>
 </div>
@@ -67,7 +68,7 @@
 
 
 </div>
-
+</div>
 <div class="container-fluid bottom-layout">
 
 	<div class="container bottom-inner-layout">
@@ -87,7 +88,7 @@
 	
 	var x = 0, y =0, z=0; 
 			var theInterval = setInterval(function(){
-					$("body").css("background", "linear-gradient(to left top, rgb(0,0,0), rgb("+x+", "+y+", "+z+"))")
+					$("body").css("background", "linear-gradient(to left top, rgb("+x+", "+y+", "+z+"), rgb(0,0,0))")
 
 					x+=10;
 					y+=10;
