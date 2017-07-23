@@ -7,8 +7,9 @@ body, div, p, input, .col-sm-2{
 body{
   /*background-color: #000; */
   height: 100%;
-  background-color: -webkit-linear-gradient(to left top, blue, red);
-  background: linear-gradient( to left, #aaa, #000, #aaa, #000, #aaa);
+  background-color: white;
+  /*-webkit-linear-gradient(to left top, blue, red);
+  background: linear-gradient( to left, #aaa, #000, #aaa, #000, #aaa);*/
 }
 canvas{
   background: linear-gradient( to left top, black, white);
@@ -40,7 +41,7 @@ canvas{
   text-align: right;
 }
 .navItem a{
-  color: white;
+  color: black;
   text-decoration: none;
 
 }
