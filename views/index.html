@@ -32,6 +32,7 @@ circle {
 
 
 
+
 <div class="container-fluid" id="nav" style="margin: 50px 100px 0px 100px;">
 
 <div class="row" style="color: #ccc;">
@@ -87,11 +88,16 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 
 	</div>
 
-	<div class="col-sm-6" id="svgContainer" style="padding: 0px;">
+	<div class="col-sm-6" id="svgContainer" style="padding: 0px; border: 1px solid #0000ff" >
 
-		<svg id="aboutMEsvg" style="border: 1px solid white;">
+		<svg xmlns="http://www.w3.org/2000/svg" id="aboutMEsvg" width="500" height="500" style="border: 1px solid black;" >
 
 
+		  <circle cx="150" cy="150" r="100" fill="red" opacity=".5"/>
+		  
+		   <circle cx="250" cy="150" r="100" fill="blue" opacity=".5"/>
+		   <circle cx="250" cy="250" r="100" fill="yellow" opacity=".5"/>
+		   <circle cx="150" cy="250" r="100" fill="green" opacity=".5"/> 
 
 		</svg>
 
@@ -338,194 +344,237 @@ function theRest(){
 		mt = mt + d;
 		$("#blackDivide").css("margin-top", mt+"px");
 
-		if(mt < 50){
+		if(mt < 50){  
 			clearInterval(wala);
 			$("#blackDivide").css("margin-top", "0px");
 			$("#resumeSec").fadeIn(2000);
-			triangleFun();
+			//triangleFun();
+			makeDisc();
 
 		}
 
 	}, 32);
 
 
+
+
+function makeDisc(){
+
+
+	height1 = document.getElementById("aboutMe").offsetHeight;
+	width1 = document.getElementById("aboutMe").offsetWidth;
+	d3.select("#aboutMEsvg").attr("height", height1).attr("width", width1);
+	$("#svgContainer").fadeIn(5000); 
+
+
+
+	// d3.select("#aboutMEsvg").insert("circle")
+	// .attr("cx", 100)
+	// .attr("cy", 100)
+	// .attr("r", 100)
+	// .attr("fill", "red");
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 //svgAM.attr("height", document.getElementById("aboutMe").offsetHeight);
 
-function lineStroke1() {
- var svgAM = d3.select("#aboutMEsvg");
+// function lineStroke1() {
+//  var svgAM = d3.select("#aboutMEsvg");
 
 
-// first set the dimensions of the  svg container, should be same as left column
-height1 = document.getElementById("aboutMe").offsetHeight;
-width1 = document.getElementById("aboutMe").offsetWidth;
-d3.select("#aboutMEsvg").attr("height", height1).attr("width", width1);
+// // first set the dimensions of the  svg container, should be same as left column
+// height1 = document.getElementById("aboutMe").offsetHeight;
+// width1 = document.getElementById("aboutMe").offsetWidth;
+// d3.select("#aboutMEsvg").attr("height", height1).attr("width", width1);
 
-//get starting point of first line
-var x1 = width1 / 4;
-var y1 = (height1/4) * 3;
-var x2End = width1 / 2; 
-var y2End = height1 / 10;
-  svgAM.insert("line")
-      .attr("x1", x1)
-      .attr("y1", y1)
-      .attr("x2", x1)
-      .attr("y2", y1)
-      .style("stroke", "rgb(0,0,255)")
-      .style("stroke-opacity", 1)
-      .style("stroke-width", 3)
-    .transition()
-      .duration(1000)
-      .attr("x2", x2End)
-      .attr("y2", y2End)
-      .style("stroke-opacity", 1e-6)
-      .remove();
-
-
-}
-
-function lineStroke2() {
- var svgAM = d3.select("#aboutMEsvg");
-
-// first set the dimensions of the  svg container, should be same as left column
-height1 = document.getElementById("aboutMe").offsetHeight;
-width1 = document.getElementById("aboutMe").offsetWidth;
+// //get starting point of first line
+// var x1 = width1 / 4;
+// var y1 = (height1/4) * 3;
+// var x2End = width1 / 2; 
+// var y2End = height1 / 10;
+//   svgAM.insert("line")
+//       .attr("x1", x1)
+//       .attr("y1", y1)
+//       .attr("x2", x1)
+//       .attr("y2", y1)
+//       .style("stroke", "rgb(0,0,255)")
+//       .style("stroke-opacity", 1)
+//       .style("stroke-width", 3)
+//     .transition()
+//       .duration(1000)
+//       .attr("x2", x2End)
+//       .attr("y2", y2End)
+//       .style("stroke-opacity", 1e-6)
+//       .remove();
 
 
-//get starting point of first line
-var x1 = width1 / 2; 
-var y1 = height1 / 10;
-var x2End  = width1 / 4 * 3;
-var y2End = (height1/4) * 3;
+// }
 
-  svgAM.insert("line")
-      .attr("x1", x1)
-      .attr("y1", y1)
-      .attr("x2", x1)
-      .attr("y2", y1)
-      .style("stroke", "rgb(0, 255, 0)")
-      .style("stroke-opacity", 1)
-      .style("stroke-width", 3)
-    .transition()
-      .duration(1000)
-      .attr("x2", x2End)
-      .attr("y2", y2End)
-      .style("stroke-opacity", 1e-6)
-      .remove();
+// function lineStroke2() {
+//  var svgAM = d3.select("#aboutMEsvg");
 
-}
-
-function lineStroke3() {
- var svgAM = d3.select("#aboutMEsvg");
+// // first set the dimensions of the  svg container, should be same as left column
+// height1 = document.getElementById("aboutMe").offsetHeight;
+// width1 = document.getElementById("aboutMe").offsetWidth;
 
 
+// //get starting point of first line
+// var x1 = width1 / 2; 
+// var y1 = height1 / 10;
+// var x2End  = width1 / 4 * 3;
+// var y2End = (height1/4) * 3;
 
-// first set the dimensions of the  svg container, should be same as left column
-height1 = document.getElementById("aboutMe").offsetHeight;
-width1 = document.getElementById("aboutMe").offsetWidth;
+//   svgAM.insert("line")
+//       .attr("x1", x1)
+//       .attr("y1", y1)
+//       .attr("x2", x1)
+//       .attr("y2", y1)
+//       .style("stroke", "rgb(0, 255, 0)")
+//       .style("stroke-opacity", 1)
+//       .style("stroke-width", 3)
+//     .transition()
+//       .duration(1000)
+//       .attr("x2", x2End)
+//       .attr("y2", y2End)
+//       .style("stroke-opacity", 1e-6)
+//       .remove();
 
+// }
 
-//get starting point of first line
-var x1  = width1 / 4 * 3;
-var y1 = (height1/4) * 3;
-var x2End = width1 / 4;
-var y2End = (height1/4) * 3;
-
-  svgAM.insert("line")
-      .attr("x1", x1)
-      .attr("y1", y1)
-      .attr("x2", x1)
-      .attr("y2", y1)
-      .style("stroke", "rgb(255, 0, 0)")
-      .style("stroke-opacity", 1)
-      .style("stroke-width", 3)
-    .transition()
-      .duration(1000)
-      .attr("x2", x2End)
-      .attr("y2", y2End)
-      .style("stroke-opacity", 1e-6)
-      .remove();
-
-}
-
-function allLineStroke(){
-
-var svgAM = d3.select("#aboutMEsvg");
+// function lineStroke3() {
+//  var svgAM = d3.select("#aboutMEsvg");
 
 
-// first set the dimensions of the  svg container, should be same as left column
-height1 = document.getElementById("aboutMe").offsetHeight;
-width1 = document.getElementById("aboutMe").offsetWidth;
-d3.select("#aboutMEsvg").attr("height", height1).attr("width", width1);
 
-//get starting point of first line
-var x1 = width1 / 4;
-var y1 = (height1/4) * 3;
-var x2End = width1 / 2; 
-var y2End = height1 / 10;
-  svgAM.insert("line")
-      .attr("x1", x1)
-      .attr("y1", y1)
-      .attr("x2", x1)
-      .attr("y2", y1)
-      .style("stroke", "rgb(0,0,255)")
-      .style("stroke-opacity", 1)
-      .style("stroke-width", 3)
-     .transition()
-     .duration(500)
-     .attr("x2", x2End)
-     .attr("y2", y2End);
+// // first set the dimensions of the  svg container, should be same as left column
+// height1 = document.getElementById("aboutMe").offsetHeight;
+// width1 = document.getElementById("aboutMe").offsetWidth;
 
 
-	x1 = width1 / 2; 
-	y1 = height1 / 10;
-	x2End  = width1 / 4 * 3;
-	y2End = (height1/4) * 3;
+// //get starting point of first line
+// var x1  = width1 / 4 * 3;
+// var y1 = (height1/4) * 3;
+// var x2End = width1 / 4;
+// var y2End = (height1/4) * 3;
 
-  svgAM.insert("line")
-      .attr("x1", x1)
-      .attr("y1", y1)
-      .attr("x2", x1)
-      .attr("y2", y1)
-      .style("stroke", "rgb(0, 255, 0)")
-      .style("stroke-opacity", 1)
-      .style("stroke-width", 3)
-    .transition()
-      .duration(1000)
-      .attr("x2", x2End)
-      .attr("y2", y2End)
+//   svgAM.insert("line")
+//       .attr("x1", x1)
+//       .attr("y1", y1)
+//       .attr("x2", x1)
+//       .attr("y2", y1)
+//       .style("stroke", "rgb(255, 0, 0)")
+//       .style("stroke-opacity", 1)
+//       .style("stroke-width", 3)
+//     .transition()
+//       .duration(1000)
+//       .attr("x2", x2End)
+//       .attr("y2", y2End)
+//       .style("stroke-opacity", 1e-6)
+//       .remove();
+
+// }
+
+// function allLineStroke(){
+
+// var svgAM = d3.select("#aboutMEsvg");
 
 
-	x1  = width1 / 4 * 3;
-	y1 = (height1/4) * 3;
-	x2End = width1 / 4;
-	y2End = (height1/4) * 3;
+// // first set the dimensions of the  svg container, should be same as left column
+// height1 = document.getElementById("aboutMe").offsetHeight;
+// width1 = document.getElementById("aboutMe").offsetWidth;
+// d3.select("#aboutMEsvg").attr("height", height1).attr("width", width1);
 
-  svgAM.insert("line")
-      .attr("x1", x1)
-      .attr("y1", y1)
-      .attr("x2", x1)
-      .attr("y2", y1)
-      .style("stroke", "rgb(255, 0, 0)")
-      .style("stroke-opacity", 1)
-      .style("stroke-width", 3)
-    .transition()
-      .duration(1000)
-      .attr("x2", x2End)
-      .attr("y2", y2End)
+// //get starting point of first line
+// var x1 = width1 / 4;
+// var y1 = (height1/10) * 9;
+// var x2End = width1 / 2; 
+// var y2End = height1 / 10;
+//   svgAM.insert("line")
+//       .attr("x1", x1)
+//       .attr("y1", y1)
+//       .attr("x2", x1)
+//       .attr("y2", y1)
+//       .style("stroke", "rgb(0,0,255)")
+//       .style("stroke-opacity", 1)
+//       .style("stroke-width", 3)
+//      .transition()
+//      .duration(500)
+//      .attr("x2", x2End)
+//      .attr("y2", y2End);
+
+
+// 	x1 = width1 / 2; 
+// 	y1 = height1 / 10;
+// 	x2End  = width1 / 4 * 3;
+// 	y2End = (height1/4) * 3;
+
+//   svgAM.insert("line")
+//       .attr("x1", x1)
+//       .attr("y1", y1)
+//       .attr("x2", x1)
+//       .attr("y2", y1)
+//       .style("stroke", "rgb(0, 255, 0)")
+//       .style("stroke-opacity", 1)
+//       .style("stroke-width", 3)
+//     .transition()
+//       .duration(1000)
+//       .attr("x2", x2End)
+//       .attr("y2", y2End)
+
+
+// 	x1  = width1 / 4 * 3;
+// 	y1 = (height1/4) * 3;
+// 	x2End = width1 / 4;
+// 	y2End = (height1/4) * 3;
+
+//   svgAM.insert("line")
+//       .attr("x1", x1)
+//       .attr("y1", y1)
+//       .attr("x2", x1)
+//       .attr("y2", y1)
+//       .style("stroke", "rgb(255, 0, 0)")
+//       .style("stroke-opacity", 1)
+//       .style("stroke-width", 3)
+//     .transition()
+//       .duration(1000)
+//       .attr("x2", x2End)
+//       .attr("y2", y2End)
   
 
 
-}
+// }
 
-function triangleFun(){
+// function makeDisc(){
 
-	// need to set dimensions first since about me block was hidden
+// 	d3.select("#aboutMEsvg").insert("circle")
+// 	.attr("cx", 100)
+// 	.attr("cy", 100)
+// 	.attr("r", 100)
+// 	.attr("fill", "blue");
+// }
+
+// function triangleFun(){
+
+// 	// need to set dimensions first since about me block was hidden
 	
-	lineStroke1();
-	setTimeout(lineStroke2, 1000);
-	setTimeout(lineStroke3, 2000);
-	setTimeout(allLineStroke, 3000);
-}
+// 	makeDisc();
+// 	// lineStroke1();
+// 	// setTimeout(lineStroke2, 1000);
+// 	// setTimeout(lineStroke3, 2000);
+// 	// setTimeout(allLineStroke, 3000);
+// }
 
 
 
