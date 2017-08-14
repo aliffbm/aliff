@@ -14,6 +14,7 @@ body {
   margin: 0;
 
   min-width: 960px;
+  min-height: 1280px;
 }
 
 rect {
@@ -127,18 +128,22 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 </div>
 <div class="container" id="resumeSec" style="display: none;">
 
-<h1 class="text-center">Resume</h1>
+<h2 class="text-center">Resume</h2>
+<hr>
 
-<pre>
 
-Aliff Macapinlac
+<h3 style="text-align:center;">Aliff Macapinlac</h3>
 
-EXPERIENCE
-UC San Diego Design Lab, La Jolla — Research Assistant
-Jun 2016 - Present
+<h4>EXPERIENCE</h4>
+
+<div class="container" style="background-color: #00f; min-height: 1px;"></div>
+
+<h4><b>UC San Diego Design Lab, La Jolla — Research Assistant
+Jun 2016 - Present</b></h4>
 Manage online specialization courses on coursera – Human Computer Interaction; Facilitate participant studies on UI design; Use Google Adwords and Analytics to measure impressions and click throughs on search networks and events on websites
-Joint Program of UCSD Moore’s Cancer Center and SDSU, La Jolla — Science Scholar, Researcher
-JUNE 2016 - AUGUST 2016
+
+<h4><b>Joint Program of UCSD Moore’s Cancer Center and SDSU, La Jolla — Science Scholar, Researcher
+JUNE 2016 - AUGUST 2016</b></h4>
 Research on health disparities; Conducted Extensive literature reviews; Presented weekly on new findings
 Smart Mind Robotics, San Diego — Robotics Instructor
 JANUARY 2015 - FEBRUARY  2016
@@ -175,7 +180,7 @@ amacapin@ucsd.edu
 
 
 
-</pre>
+
 
 
 </div>
@@ -249,6 +254,7 @@ var svg = d3.select("#part").append("svg")
 
     window.onresize = function(){
     	width = document.getElementById("part").offsetWidth;
+    	height = document.getElementById("part").offsetHeight;
     	height1 = document.getElementById("aboutMe").offsetHeight;
 		width1 = document.getElementById("aboutMe").offsetWidth;
 		
@@ -256,7 +262,7 @@ var svg = d3.select("#part").append("svg")
 
 		d3.select("circle").attr("cx", width1/2 + 50);
 
-    	
+    	d3.select("#part").style("background-size", ""+width+"px "+height+"px");
     	svg.attr("width", width);
 
     }
@@ -342,7 +348,7 @@ particle = function() {
   	  .attr("fill", "none")
       .attr("cx", Math.random()*width)
       .attr("cy", Math.random()*height)
-      .attr("r", 1e-6)
+      .attr("r", .01)
       .style("stroke", d3.hsl((i = (i + 1) % 360), 1, .5))
       .style("stroke-opacity", 1)
     .transition()
@@ -355,11 +361,29 @@ particle = function() {
 }
 
 
-var particleInterval = setInterval(particle, 1);
+var particleInterval = setInterval(particle, .10);
 
 setTimeout(function(){
-	clearInterval(particleInterval);
-}, 9000);
+	
+	var a = 1; 
+
+	d3.select("#part").style("background-image", 'url("images/glider.jpg")')
+			.style("background-size", ""+width+"px "+height+"px")
+			.style("background-repeat", "no-repeat");
+			
+	var slideCircle = setInterval(function(){
+		d3.select("#part").select("svg").style("opacity", (a-=.03));
+
+		if(a < .01){
+			clearInterval(particleInterval);
+			d3.select("#part").select("svg").remove();
+			
+			
+		}
+	}, 500)
+	
+	
+}, 7000);
 
 // d3.select("svg").append("path").attr("d", d3.symbol().type("triangle-up").size(500)).attr("transform", function(d){return "translate("+100+","+100+")";}).style("fill", red);
 
@@ -449,7 +473,7 @@ function theRest(){
 			$("#blackDivide").css("margin-top", "0px");
 			$("#resumeSec").fadeIn(2000);
 			//triangleFun();
-			makeDisc();
+			//makeDisc();
 
 		}
 
