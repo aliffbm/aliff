@@ -58,7 +58,7 @@ circle {
 </div>
 <div id="header" style="text-align: center; margin-bottom: 50px; color: #777;">
 <h1>Aliff Macapinlac</h1>
-<h3>@UCSD</h3>
+<h3>@UCSD - dataScience</h3>
 </div>
 
 <div class="container-fluid" id="part" style="background-color: #fff; min-height: 300px;">
@@ -89,7 +89,7 @@ circle {
 
 	<div class="row">
 		<h1 id="welcome" style="text-align:center; color: black; display:none">Welcome!</h1>
-	<div class="col-sm-6" id="aboutMe" style="color: #888; display:none;">
+	<div class="col-sm-6" id="aboutMe" style="color: #888; display:none; font-size: 20px;">
 
 		<h2>About Me</h2>
 		<p>Hello, my name is Aliff and I exist in a Galaxy
@@ -145,8 +145,8 @@ Manage online specialization courses on coursera – Human Computer Interaction;
 <h4><b>Joint Program of UCSD Moore’s Cancer Center and SDSU, La Jolla — Science Scholar, Researcher
 JUNE 2016 - AUGUST 2016</b></h4>
 Research on health disparities; Conducted Extensive literature reviews; Presented weekly on new findings
-Smart Mind Robotics, San Diego — Robotics Instructor
-JANUARY 2015 - FEBRUARY  2016
+<h4><b>Smart Mind Robotics, San Diego — Robotics Instructor
+JANUARY 2015 - FEBRUARY  2016</b></h4>
 Taught basic programming: statements, decision, and loop structures. Applied math and programming to Robotics hardware. Designed and tailored curriculum to fit educational needs of the students. 
 Union Bank, San Diego — Branch Service Manager
 FEBRUARY 2010 - JANUARY 2015
@@ -343,7 +343,24 @@ var svg = d3.select("#part").append("svg")
 var i = 0;
 particle = function() {
  
+if(i < 10){
 
+	for(var z = 0; z < 50; z++){
+	svg.insert("circle")
+  	  .attr("fill", "none")
+      .attr("cx", Math.random()*width)
+      .attr("cy", Math.random()*height)
+      .attr("r", .01)
+      .style("stroke", d3.hsl((i = (i + 1) % 360), 1, .5))
+      .style("stroke-opacity", 1)
+    .transition()
+      .duration(5000)
+      .ease(Math.sqrt)
+      .attr("r", 200)
+      .style("stroke-opacity", .5);
+
+  }
+}
   svg.insert("circle")
   	  .attr("fill", "none")
       .attr("cx", Math.random()*width)
