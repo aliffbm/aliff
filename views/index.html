@@ -28,11 +28,20 @@ circle {
 
 .projects{
 	padding: 30px;
+	cursor:pointer;
 }
 
 #footerList li{
 	color: white;
 	display: inline;
+}
+
+#contactLinks span{
+	margin: 10px;
+}
+
+.navItem{
+	font-size: 18px;
 }
 </style>
 </head>
@@ -46,16 +55,13 @@ circle {
 <div class="row" style="color: #ccc;">
 	<div class="col-sm-2"><h5>Soli Deo Gloria</h5></div>
 
-	<div class="col-sm-1 col-sm-push-6 navItem">
+	<div class="col-sm-1 col-sm-push-7 navItem">
 		<a href="#aboutMe">About</a>
 	</div>
-	<div class="col-sm-1 col-sm-push-6 navItem">
+	<div class="col-sm-1 col-sm-push-7 navItem">
 		<a href="#resumeSec">Resume</a>
 	</div>
-	<div class="col-sm-1 col-sm-push-6 navItem">
-		<a href="#">Interest</a>
-	</div>
-	<div class="col-sm-1 col-sm-push-6 navItem">
+	<div class="col-sm-1 col-sm-push-7 navItem">
 		<a href="#">Projects</a>
 	</div>
 </div>
@@ -137,7 +143,7 @@ circle {
 </div>
 <div class="blackDivide" style="background-color: black; display:none;">
 
-<h5 style="text-align: center; color: #fff; font-size: 30px; font-family: Georgia; margin: 0;"/><em>"Anyone who has never made a mistake has never tried anything new"</em></h5>
+<h5 style="text-align: center; color: #fff; font-size: 30px; font-family: Georgia; margin: 0;"/><em>"Anyone who has never made a mistake has never tried anything new."</em></h5>
 
 </div>
 
@@ -302,17 +308,17 @@ Database
 <div class="container-fluid blackDivide" style="background-color: #eee; min-height: 500px; display: none; padding-top: 20px;">
 <h2 style="text-align:center;">Projects</h2>
 
-<div class="container" style="padding: 30px;">
+<div class="container" style="padding: 30px; padding-bottom:20px;">
 
 <div class="row">
 
-<div class="col-sm-6 projects">
+<div class="col-sm-6 projects" onclick="redirectAffiniate()">
 
 <img class="img-responsive" src="images/affiniate.jpg" style="height: 368px; width: 350px"/>
 <h1 style="text-align: center; background-color: white; margin:0;">Affiniate</h1>
 </div>
 
-<div class="col-sm-6 projects">
+<div class="col-sm-6 projects" onclick="redirectOnlineJournalClub()">
 <img class="img-responsive" src="images/onlineJournalClub.jpg" style="height: 368px; width: 300px;"/>
 <h1 style="text-align: center; margin: 0; background-color: #fff;">Online Journal Club</h1>
 </div>
@@ -322,27 +328,26 @@ Database
 
 </div>
 
-<div class="container-fluid" id="footer" style="margin:0;background-color: #000; display: none;">
+<div class="container-fluid" id="footer" style="margin:0; color: #fff; background-color: #000; display: none; font-size: 20px;">
 
-<footer><p class="left" style="color:#fff; font-size: 18px;">&#9400;Aliff Macapinlac</p>
+<div class="row">
+	<div class="col-sm-6">
+		<footer style="margin-left:5px;">&#9400;Aliff Macapinlac</footer>
+	</div>
 
-<div class="right" style="margin:0">
-<ul style="text-align: center; margin:0;" id="footerList">
-<li>
-linkedIn
-</li>
-<li>
-gitHub
-</li>
+	<div id="contactLinks" class="col-sm-6" style="text-align:right;">
+		<span><a href="#">LinkedIn</a></span>
+		<span><a href="https://github.com/goofysir04">gitHub</a></span>
+	</div>
 
-</ul>
 </div>
-</footer>
 </div>
 
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
+
+
 
 <script>
 
@@ -494,7 +499,7 @@ function offScreen(){
 
 function aboutMeSlide(){
 
-		var f = 50;
+		var f = 100;
 		$("#aboutMe").fadeIn(2000);
 
 		var e = window.innerWidth;
@@ -563,7 +568,20 @@ function projectsWidth(){
 		document.getElementsByClassName("projects")[i].children[0].style.width = theProjectsWidth+"px";
 	}
 
+
+
 }
+
+
+// add clicks to project
+function redirectAffiniate(){
+	window.location = "https://affiniate.herokuapp.com";
+}
+
+function redirectOnlineJournalClub(){
+	window.location = "https://onlineJournalClub.herokuapp.com";
+}
+
 
 </script>
 
