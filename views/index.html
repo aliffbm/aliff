@@ -26,6 +26,14 @@ circle {
   stroke-width: 2.5px;
 }
 
+.projects{
+	padding: 30px;
+}
+
+#footerList li{
+	color: white;
+	display: inline;
+}
 </style>
 </head>
 <body>
@@ -257,7 +265,7 @@ Database
 <h4>Concepts</h4>
 	<ul>
 		<li>
-			Rapid Prototyping
+			Prototyping
 		</li>
 		<li>
 			Front End Development
@@ -266,7 +274,7 @@ Database
 			REST / AJAX
 		</li>
 		<li>
-			Back End Development
+			Back End Development 
 		</li>
 		<li>
 			MVC
@@ -291,20 +299,22 @@ Database
 
 </div>
 
-<div class="container-fluid blackDivide" style="background-color: #ddd; min-height: 500px; display: none;">
-<h1 style="text-align:center; margin-top: 30px;">PROJECTS</h1>
+<div class="container-fluid blackDivide" style="background-color: #eee; min-height: 500px; display: none; padding-top: 20px;">
+<h2 style="text-align:center;">Projects</h2>
 
-<div class="container">
+<div class="container" style="padding: 30px;">
 
 <div class="row">
 
-<div class="col-sm-6">
+<div class="col-sm-6 projects">
 
-<h1 style="text-align: center;">Affiniate</h1>
+<img class="img-responsive" src="images/affiniate.jpg" style="height: 368px; width: 350px"/>
+<h1 style="text-align: center; background-color: white; margin:0;">Affiniate</h1>
 </div>
 
-<div class="col-sm-6">
-<h1 style="text-align: center;">Online Journal Club</h1>
+<div class="col-sm-6 projects">
+<img class="img-responsive" src="images/onlineJournalClub.jpg" style="height: 368px; width: 300px;"/>
+<h1 style="text-align: center; margin: 0; background-color: #fff;">Online Journal Club</h1>
 </div>
 </div>
 
@@ -312,40 +322,28 @@ Database
 
 </div>
 
-<!-- 	<div class="col-sm-3 col-sm-push-1">
+<div class="container-fluid" id="footer" style="margin:0;background-color: #000; display: none;">
 
-		<img class="img-responsive" src="/images/aliff.png" style="max-width: 500px; margin: 0px; padding: 60px 0px 0px 20px;"/>
-		<ul id="socialMedia" style="padding:0px;">
-			<li>FaceBook</li>
-			<li>LinkedIn</li>
-			<li>Instagram</li>
-		</ul>
-	</div>
+<footer><p class="left" style="color:#fff; font-size: 18px;">&#9400;Aliff Macapinlac</p>
 
-	<div class="col-sm-3 col-sm-push-1" style="text-align: right;">
-		
-	</div>
-	</div>
+<div class="right" style="margin:0">
+<ul style="text-align: center; margin:0;" id="footerList">
+<li>
+linkedIn
+</li>
+<li>
+gitHub
+</li>
+
+</ul>
+</div>
+</footer>
 </div>
 
-
-<div class="container-fluid" style="border-top: 1px solid #ddd; margin: 20px 300px 0px 300px;">
-
-</div>
-<div class="container-fluid" style="min-height: 1500px;">
-
-
-
-
-
-</div> -->
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<!-- <script src="/js/handlebars-v4.0.5.js"></script>
-<script src="/js/researchPaperTemplate.js"></script> -->
-<!-- 
-<script src="/js/myJS.js"></script> -->
+
 <script>
 
 	var height1 = document.getElementById("aboutMe").offsetHeight;
@@ -375,9 +373,6 @@ var svg = d3.select("#part").append("svg")
 
 
 
-// svg.append("rect")
-//     .attr("width", width)
-//     .attr("height", height);
 
     window.onresize = function(){
     	width = document.getElementById("part").offsetWidth;
@@ -398,102 +393,16 @@ var svg = d3.select("#part").append("svg")
     	d3.select("#part").style("background-size", ""+width+"px "+height+"px");
     	svg.attr("width", width);
 
+    	projectsWidth();
+
     }
 
 
-//  var width1 = window.innerWidth / 2; 
-//   var height1 = window.innerHeight / 2;
-
-// d3.select("#one").attr("width", width1).attr("height", height1);
-//  var i = 0;
-// particle = function() {
-
-//    var width = screen.width / 2; 
-//    var height = screen.height / 2;
-
-//   d3.select("#one").insert("circle")
-//   	  .attr("fill", "none")
-//       .attr("cx", Math.random()*width)
-//       .attr("cy", Math.random()*height)
-//       .attr("r", 1e-6)
-//       .style("stroke", d3.hsl((i = (i + 1) % 360), 1, .5))
-//       .style("stroke-opacity", 1)
-//     .transition()
-//       .duration(5000)
-//       .ease(Math.sqrt)
-//       .attr("r", 200)
-//       .style("stroke-opacity", .5); //1e-6
-//       //.remove();
-
-// }
-
-
-// d3.select("#two").attr("width", width1).attr("height", height1);//.attr("transform", "translate(0, 0)");
-// var j = 0;
-// particle1 = function() {
-
-//    var width = screen.width / 2; 
-//    var height = screen.height / 2;
-//  var two = "#two";
-//   d3.select(two).insert("circle")
-//   	  .attr("fill", "none")
-//       .attr("cx", Math.random()*width)
-//       .attr("cy", Math.random()*height)
-//       .attr("r", 1e-6)
-//       .style("stroke", d3.hsl((j = (j + 1) % 360), 1, .5))
-//       .style("stroke-opacity", 1)
-//     .transition()
-//       .duration(5000)
-//       .ease(Math.sqrt)
-//       .attr("r", 200)
-//       .style("stroke-opacity", .5); //1e-6
-//       //.remove();
-
-// }
-
-// var interval1 = setInterval(particle, 10);
-// var interval2 = setInterval(particle1, 10);
-
-
-// function split(){
-//   clearInterval(interval1);
-//   clearInterval(interval2);
-  
-//   d3.select("#left").style("position", "relative")
-//     .transition()
-//   .duration(1000)
-//   .ease(Math.sqrt)
-//     .style("left", "-1300px");
-  
-//   d3.select("#right").style("position", "relative")
-//     .transition()
-//   .duration(1000)
-//   .ease(Math.sqrt).style("right", "-1300px");
-// }
-
-// setTimeout(split, 10000);
 
 var i = 0;
 particle = function() {
  
-// if(i < 10){
 
-// 	for(var z = 0; z < 500; z++){
-// 	svg.insert("circle")
-//   	  .attr("fill", "none")
-//       .attr("cx", Math.random()*width)
-//       .attr("cy", Math.random()*height)
-//       .attr("r", .01)
-//       .style("stroke", d3.hsl((i = (i + 1) % 360), 1, .5))
-//       .style("stroke-opacity", 1)
-//     .transition()
-//       .duration(5000)
-//       .ease(Math.sqrt)
-//       .attr("r", 200)
-//       .style("stroke-opacity", .5);
-
-//   }
-// }
   svg.insert("circle")
   	 
       .attr("cx", Math.random()*width)
@@ -535,7 +444,6 @@ setTimeout(function(){
 	
 }, 2000);
 
-// d3.select("svg").append("path").attr("d", d3.symbol().type("triangle-up").size(500)).attr("transform", function(d){return "translate("+100+","+100+")";}).style("fill", red);
 
 
 
@@ -579,7 +487,7 @@ function offScreen(){
 		welcome.fadeOut();
 		aboutMeSlide();
 		
-		//$("#resumeSec").slideUp(2000);
+		
 
 	}, 1000);
 }
@@ -623,27 +531,19 @@ function theRest(){
 			$("#blackDivide").css("margin-top", "0px");
 			$("#resumeSec").fadeIn(2000);
 			//triangleFun();
-			showMyPic(); 
+			showMyPic();
+			projectsWidth();
+			$("#footer").fadeIn(2000); 
+
+
 			
 
 		}
 
 	}, 32);
 
+}
 
-/*
-
-
-		  <circle cx="150" cy="150" r="100" fill="red" opacity=".5"/>
-		  
-		   <circle cx="250" cy="150" r="100" fill="blue" opacity=".5"/>
-		   <circle cx="250" cy="250" r="100" fill="yellow" opacity=".5"/>
-		   <circle cx="150" cy="250" r="100" fill="green" opacity=".5"/> 
-
-
-
-
-*/
 
 function showMyPic(){
 
@@ -654,263 +554,15 @@ function showMyPic(){
 	$("#svgContainer").slideDown(1000);
 }
 
+function projectsWidth(){
+	var theProjectsWidth = document.getElementsByClassName("projects")[0].offsetWidth; 
+	console.log("It is " + theProjectsWidth);
 
-function makeDisc(){
+	for(var i = 0 ; i < document.getElementsByClassName("projects").length; i++){
 
+		document.getElementsByClassName("projects")[i].children[0].style.width = theProjectsWidth+"px";
+	}
 
-	height1 = document.getElementById("aboutMe").offsetHeight;
-	width1 = document.getElementById("aboutMe").offsetWidth;
-	var svgDISCContainer = d3.select("#aboutMEsvg");
-
-	svgDISCContainer.attr("height", height1).attr("width", width1);
-
-	svgDISCContainer.insert("circle")
-	.attr("cx", width1 /4 + 70)
-	.attr("cy", height1 / 4 + 50)
-	.attr("r", 150)
-	.attr("fill", "red")
-	.attr("opacity", .5);
-
-	svgDISCContainer.insert("circle")
-	.attr("cx", (width1 /4) * 3 - 70)
-	.attr("cy", height1 / 4 + 50)
-	.attr("r", 150)
-	.attr("fill", "blue")
-	.attr("opacity", .5);
-
-	svgDISCContainer.insert("circle")
-	.attr("cx", (width1 /4) * 3 - 70 )
-	.attr("cy", height1 / 4 * 3 - 50)
-	.attr("r", 150)
-	.attr("fill", "yellow")
-	.attr("opacity", .5);
-
-	svgDISCContainer.insert("circle")
-	.attr("cx", (width1 /4) + 70)
-	.attr("cy", (height1 / 4) * 3 - 50)
-	.attr("r", 150)
-	.attr("fill", "green")
-	.attr("opacity", .5);
-
-	svgDISCContainer.insert("text")
-	.attr("x", width1 / 2 - 70)
-	.attr("y", 0)
-	.attr("text-anchor", "middle")
-	.text("Optimistic");
-
-	$("#svgContainer").fadeIn(5000); 
-
-
-
-	// d3.select("#aboutMEsvg").insert("circle")
-	
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-//svgAM.attr("height", document.getElementById("aboutMe").offsetHeight);
-
-// function lineStroke1() {
-//  var svgAM = d3.select("#aboutMEsvg");
-
-
-// // first set the dimensions of the  svg container, should be same as left column
-// height1 = document.getElementById("aboutMe").offsetHeight;
-// width1 = document.getElementById("aboutMe").offsetWidth;
-// d3.select("#aboutMEsvg").attr("height", height1).attr("width", width1);
-
-// //get starting point of first line
-// var x1 = width1 / 4;
-// var y1 = (height1/4) * 3;
-// var x2End = width1 / 2; 
-// var y2End = height1 / 10;
-//   svgAM.insert("line")
-//       .attr("x1", x1)
-//       .attr("y1", y1)
-//       .attr("x2", x1)
-//       .attr("y2", y1)
-//       .style("stroke", "rgb(0,0,255)")
-//       .style("stroke-opacity", 1)
-//       .style("stroke-width", 3)
-//     .transition()
-//       .duration(1000)
-//       .attr("x2", x2End)
-//       .attr("y2", y2End)
-//       .style("stroke-opacity", 1e-6)
-//       .remove();
-
-
-// }
-
-// function lineStroke2() {
-//  var svgAM = d3.select("#aboutMEsvg");
-
-// // first set the dimensions of the  svg container, should be same as left column
-// height1 = document.getElementById("aboutMe").offsetHeight;
-// width1 = document.getElementById("aboutMe").offsetWidth;
-
-
-// //get starting point of first line
-// var x1 = width1 / 2; 
-// var y1 = height1 / 10;
-// var x2End  = width1 / 4 * 3;
-// var y2End = (height1/4) * 3;
-
-//   svgAM.insert("line")
-//       .attr("x1", x1)
-//       .attr("y1", y1)
-//       .attr("x2", x1)
-//       .attr("y2", y1)
-//       .style("stroke", "rgb(0, 255, 0)")
-//       .style("stroke-opacity", 1)
-//       .style("stroke-width", 3)
-//     .transition()
-//       .duration(1000)
-//       .attr("x2", x2End)
-//       .attr("y2", y2End)
-//       .style("stroke-opacity", 1e-6)
-//       .remove();
-
-// }
-
-// function lineStroke3() {
-//  var svgAM = d3.select("#aboutMEsvg");
-
-
-
-// // first set the dimensions of the  svg container, should be same as left column
-// height1 = document.getElementById("aboutMe").offsetHeight;
-// width1 = document.getElementById("aboutMe").offsetWidth;
-
-
-// //get starting point of first line
-// var x1  = width1 / 4 * 3;
-// var y1 = (height1/4) * 3;
-// var x2End = width1 / 4;
-// var y2End = (height1/4) * 3;
-
-//   svgAM.insert("line")
-//       .attr("x1", x1)
-//       .attr("y1", y1)
-//       .attr("x2", x1)
-//       .attr("y2", y1)
-//       .style("stroke", "rgb(255, 0, 0)")
-//       .style("stroke-opacity", 1)
-//       .style("stroke-width", 3)
-//     .transition()
-//       .duration(1000)
-//       .attr("x2", x2End)
-//       .attr("y2", y2End)
-//       .style("stroke-opacity", 1e-6)
-//       .remove();
-
-// }
-
-// function allLineStroke(){
-
-// var svgAM = d3.select("#aboutMEsvg");
-
-
-// // first set the dimensions of the  svg container, should be same as left column
-// height1 = document.getElementById("aboutMe").offsetHeight;
-// width1 = document.getElementById("aboutMe").offsetWidth;
-// d3.select("#aboutMEsvg").attr("height", height1).attr("width", width1);
-
-// //get starting point of first line
-// var x1 = width1 / 4;
-// var y1 = (height1/10) * 9;
-// var x2End = width1 / 2; 
-// var y2End = height1 / 10;
-//   svgAM.insert("line")
-//       .attr("x1", x1)
-//       .attr("y1", y1)
-//       .attr("x2", x1)
-//       .attr("y2", y1)
-//       .style("stroke", "rgb(0,0,255)")
-//       .style("stroke-opacity", 1)
-//       .style("stroke-width", 3)
-//      .transition()
-//      .duration(500)
-//      .attr("x2", x2End)
-//      .attr("y2", y2End);
-
-
-// 	x1 = width1 / 2; 
-// 	y1 = height1 / 10;
-// 	x2End  = width1 / 4 * 3;
-// 	y2End = (height1/4) * 3;
-
-//   svgAM.insert("line")
-//       .attr("x1", x1)
-//       .attr("y1", y1)
-//       .attr("x2", x1)
-//       .attr("y2", y1)
-//       .style("stroke", "rgb(0, 255, 0)")
-//       .style("stroke-opacity", 1)
-//       .style("stroke-width", 3)
-//     .transition()
-//       .duration(1000)
-//       .attr("x2", x2End)
-//       .attr("y2", y2End)
-
-
-// 	x1  = width1 / 4 * 3;
-// 	y1 = (height1/4) * 3;
-// 	x2End = width1 / 4;
-// 	y2End = (height1/4) * 3;
-
-//   svgAM.insert("line")
-//       .attr("x1", x1)
-//       .attr("y1", y1)
-//       .attr("x2", x1)
-//       .attr("y2", y1)
-//       .style("stroke", "rgb(255, 0, 0)")
-//       .style("stroke-opacity", 1)
-//       .style("stroke-width", 3)
-//     .transition()
-//       .duration(1000)
-//       .attr("x2", x2End)
-//       .attr("y2", y2End)
-  
-
-
-// }
-
-// function makeDisc(){
-
-// 	d3.select("#aboutMEsvg").insert("circle")
-// 	.attr("cx", 100)
-// 	.attr("cy", 100)
-// 	.attr("r", 100)
-// 	.attr("fill", "blue");
-// }
-
-// function triangleFun(){
-
-// 	// need to set dimensions first since about me block was hidden
-	
-// 	makeDisc();
-// 	// lineStroke1();
-// 	// setTimeout(lineStroke2, 1000);
-// 	// setTimeout(lineStroke3, 2000);
-// 	// setTimeout(allLineStroke, 3000);
-// }
-
-
-
-
-	
 }
 
 </script>
