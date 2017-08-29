@@ -1,66 +1,216 @@
-'use strict';
 
-$(document).ready(function(){
 
-	initializePage(); 
+var width = document.getElementById("part").offsetWidth,
+    height = document.getElementById("part").offsetHeight;
 
-});
 
-function initializePage(){
 
-	$("#tree").click(function(e){
-		e.preventDefault();
-	
-		var someHTML = "<div class='container'>" +
+var svg = d3.select("#part").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+
+
+
+    window.onresize = function(){
+    	width = document.getElementById("part").offsetWidth;
+    	height = document.getElementById("part").offsetHeight;
+    	height1 = document.getElementById("aboutMe").offsetHeight;
+		width1 = document.getElementById("aboutMe").offsetWidth;
 		
-		"<h1 class='text-center nameHeader'><img class='img-circle' id='aliffPic' src='images/me.jpg' width=130/>Aliff Macapinlac</h1>" + 
-		"<div class='row'><div class='col-sm-12'></div></div>"+
-		"</div>";
-		$("body").html(someHTML);  
-		$("body").css({"background-image": "url(/images/frontPagePic.jpg)", "background-position": "center"});
-		$("#aliffPic").css({"display": "inline-block"})
-	});
+		d3.select("#aboutMEsvg").attr("width", width1).attr("height", height1);	
 
-	// $("#coffeeShop").click(function(e){
-	// 	e.preventDefault();
-	
-	// 	var someHTML = 
-	// 	"<div class='container'>" +
-	// 	"<div class='row'>"+
-	// 	"<div class='col-sm-3 col-sm-push-8'><h1 class='nameHeader' style='display: inline-block; min-width: 400px;'>Aliff Macapinlac<span>I have no special Talent." +
-	// 	"<br>I am only passionately curious. <br>  &emsp; &emsp; &emsp;   - Albert Einstein</span></h1></div>" + 
-	// 	"<div class='col-sm-2 col-sm-push-8'><img class='img-circle' id='aliffPic' src='images/me.jpg' width=130/></div>"+
-	// 	"</div>" +
-	// 	"<div class='row'>" +
-	// 	"<div class='col-sm-5' style='border: 1px solid #fff'>Navigation Menu Goes Here</div>"+
-	// 	"</div>"+ 
-	// 	"</div>";
-	// 	$("body").html(someHTML);  
-	// 	$("body").css({"background-image": "url(/images/coffeeShop.png)", "background-position": "center"});
-	// });
+		$("#svgContainer img").css("width", width1).css("height", height1)
+		.css("border-radius", "50px");
 
-	$("#jungle").click(function(e){
-		e.preventDefault();
-		
-		var someHTML = "<div class='container'>" +
-		
-		"<h1 class='text-center nameHeader'><img class='img-circle' id='aliffPic' src='images/me.jpg' width=130/>Aliff Macapinlac</h1>" + 
-		"<div class='row'><div class='col-sm-12'></div></div>"+
-		"</div>";
-		$("body").html(someHTML);  
-		$("body").css({"background-image": "url(/images/jungle.jpg)", "background-position": "center"});
-	});
+		svg.attr("width", width)
+		.attr("height", height);
 
-		$("#antarctica").click(function(e){
-		e.preventDefault();
-		
-		var someHTML = "<div class='container'>" +
-		
-		"<h1 class='text-center nameHeader'><img class='img-circle' id='aliffPic' src='images/me.jpg' width=130/>Aliff Macapinlac</h1>" + 
-		"<div class='row'><div class='col-sm-12'></div></div>"+
-		"</div>";
-		$("body").html(someHTML);  
-		$("body").css({"background-image": "url(/images/antarctica.jpg)", "background-position": "center"});
-	});
+		//d3.select("circle").attr("cx", width1/2 + 50);
+
+    	d3.select("#part").style("background-size", ""+width+"px "+height+"px");
+    	svg.attr("width", width);
+
+    	projectsWidth();
+
+    }
+
+
+
+var i = 0;
+particle = function() {
+ 
+
+  svg.insert("circle")
+  	 
+      .attr("cx", Math.random()*width)
+      .attr("cy", Math.random()*height)
+      .attr("r", .01)
+      .style("stroke", d3.hsl((i = (i + 1) % 360), 1, .5))
+      .style("stroke-opacity", 1)
+    .transition()
+      .duration(5000)
+      .ease(Math.sqrt)
+      .attr("r", 200)
+      .style("stroke-opacity", .5);
+      //.remove();
 
 }
+
+
+var particleInterval = setInterval(particle, .10);
+
+setTimeout(function(){
+	
+	var a = 1; 
+
+	d3.select("#part").style("background-image", 'url("images/glider.jpg")')
+			.style("background-size", ""+width+"px "+height+"px")
+			.style("background-repeat", "no-repeat");
+			
+	var slideCircle = setInterval(function(){
+		d3.select("#part").select("svg").style("opacity", (a-=.04));
+
+		if(a < .01){
+			clearInterval(particleInterval);
+			d3.select("#part").select("svg").remove();
+			
+			
+		}
+	}, 500)
+	
+	
+}, 2000);
+
+
+
+
+
+
+var welcome = $("#welcome");
+
+var w = 10; 
+var arrived = false;
+welcome.fadeIn(); 
+
+var inter = setInterval(function(){
+	welcome.css("margin-top", w+"px"); 
+	w+=10; 
+	if(w > 300){
+	
+		clearInterval(inter);
+		setTimeout(offScreen, 1000);
+	}
+}, 10);
+
+
+
+var k = 0; 
+var c2 = -100;
+var d = 0;
+var c3 = -10;
+function offScreen(){
+	
+	var it = setInterval(function(){
+		k = k + c2;
+		d = d+ c3;
+		welcome.css("transform", "rotate("+d+"deg)");
+		welcome.css("margin-left", k+"px");
+	}, 30);
+
+	setTimeout(function(){
+		clearInterval(it);
+		welcome.fadeOut();
+		aboutMeSlide();
+		
+		
+
+	}, 1000);
+}
+
+function aboutMeSlide(){
+
+		var f = 100;
+		$("#aboutMe").fadeIn(2000);
+
+		var e = window.innerWidth;
+
+		var itt = setInterval(function(){
+			e = e - f;
+			$("#aboutMe").css("margin-left", e+"px");
+
+			if(e < 0){
+				clearInterval(itt);
+				$("#aboutMe").css("margin-left", "0px");
+				theRest();
+
+			}
+		}, 1);
+		
+		
+
+}
+
+function theRest(){
+
+	// 
+	$(".blackDivide").fadeIn(2200);
+	var mt = window.innerHeight - 500;
+	var d = -40;
+	var wala = setInterval(function(){
+
+		mt = mt + d;
+		$("#blackDivide").css("margin-top", mt+"px");
+
+		if(mt < 50){  
+			clearInterval(wala);
+			$("#blackDivide").css("margin-top", "0px");
+			$("#resumeSec").fadeIn(2000);
+			//triangleFun();
+			showMyPic();
+			projectsWidth();
+			$("#footer").fadeIn(2000); 
+
+
+			
+
+		}
+
+	}, 32);
+
+}
+
+
+function showMyPic(){
+
+	height1 = document.getElementById("aboutMe").offsetHeight;
+	width1 = document.getElementById("aboutMe").offsetWidth;
+	$("#svgContainer img").css("width", width1).css("height", height1)
+	.css("border-radius", "50px");
+	$("#svgContainer").slideDown(1000);
+}
+
+function projectsWidth(){
+	var theProjectsWidth = document.getElementsByClassName("projects")[0].offsetWidth; 
+	console.log("It is " + theProjectsWidth);
+
+	for(var i = 0 ; i < document.getElementsByClassName("projects").length; i++){
+
+		document.getElementsByClassName("projects")[i].children[0].style.width = theProjectsWidth+"px";
+	}
+
+
+
+}
+
+
+// add clicks to project
+function redirectAffiniate(){
+	window.location = "https://github.com/goofysir04/affinvf";
+}
+
+function redirectOnlineJournalClub(){
+	window.location = "https://onlineJournalClub.herokuapp.com";
+}
+
+
